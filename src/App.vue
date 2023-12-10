@@ -1,12 +1,36 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+  <div id="app" data-app>
+    <BarraNavegacion @resetView="resetView"></BarraNavegacion>
+    <router-view :key="routeKey"></router-view>
   </div>
 </template>
+
+<script>
+import BarraNavegacion from './components/BarraNavegacion.vue';
+
+
+export default {
+  name: "App",
+  data(){
+    return{
+      routeKey: 0,
+    }
+    
+  },
+  components: {
+    BarraNavegacion,
+    
+  },
+  methods:{
+    resetView(){
+      this.routeKey++;
+    }
+  }
+  
+}
+
+
+</script>
 
 <style>
 #app {
