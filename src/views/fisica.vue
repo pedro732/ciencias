@@ -46,13 +46,13 @@ export default {
     }
   },
   created() {
-  axios.get('/fisica.json')
-    .then(response => {
-      this.items = response.data
-    })
-    .catch(error => {
-      console.error('Error loading fisica.json:', error)
-    })
+    axios.get(process.env.NODE_ENV === 'production' ? '/ciencias/fisica.json' : '/fisica.json')
+  .then(response => {
+    this.items = response.data
+  })
+  .catch(error => {
+    console.error('Error loading fisica.json:', error)
+  });
 },
 methods: {
     goToUnidadesMedida() {
