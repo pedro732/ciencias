@@ -1,6 +1,6 @@
 // firebase.js
 import { initializeApp } from "firebase/app";//autenticacion
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged , signOut} from "firebase/auth";
 import {getFirestore} from "firebase/firestore" // para usar base de datos
 
 
@@ -18,4 +18,4 @@ const firebaseConfig = {
  const app = initializeApp(firebaseConfig);
  const auth = getAuth();// autenticacion
  const db= getFirestore();// base de datosn 
- export { app, auth, db, onAuthStateChanged };
+ export { app, auth, db, onAuthStateChanged , signOut};

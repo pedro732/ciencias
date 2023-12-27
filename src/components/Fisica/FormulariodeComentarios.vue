@@ -21,10 +21,19 @@
         </div>
       </v-col>
     </v-row>
+    <v-dialog v-model="dialog" max-width="400px">
+      <v-card>
+        <v-card-title class="headline">{{ dialogTitle }}</v-card-title>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="green darken-1" text @click="dialog = false">Cerrar</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
   <script>
-  import { db, auth, onAuthStateChanged } from '@/firebase'
+  import { db, auth, onAuthStateChanged ,signOut} from '@/firebase'
   import { collection, addDoc } from "firebase/firestore";
   
   export default {
@@ -63,8 +72,19 @@
         this.dialogTitle = 'Debe iniciar sesión antes de enviar un comentario';
         this.dialog = true;
       }
+      
+    },
+    async logout() {
+    try {
+      await signOut(auth);
+      this.user = null;  // asegúrate de actualizar el estado del usuario
+    } catch (e) {
+      console.error('Error al cerrar la sesión:', e);
     }
   }
+    
+  }
+  
 }
 </script>
   
@@ -118,6 +138,9 @@
 .v-text-field ,
 .v-input__control{
   border: dotted;
+}
+.modal-text {
+  font-size: 10px; /* Ajusta este valor según tus necesidades */
 }
 
 </style>
