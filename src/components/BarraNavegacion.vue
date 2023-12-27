@@ -1,18 +1,17 @@
 <template>
-   
   <div class="mi-contenedor" >
-      <router-link to="/" class="navbar-button" @click.native="$emit('resetView')">Inicio</router-link>
-      <router-link to="/login" class="navbar-button">Iniciar sesion</router-link>
-      <router-link to="/registro" class="navbar-button">Registrarse</router-link>
-      <div class="breadcrumb">
-<router-link to="/">Inicio</router-link>
-<span v-for="(route, i) in $route.matched" :key="i">
-  <span> / </span>
-  <router-link :to="route.path">{{ route.name }}</router-link>
-</span>
-</div>
+    <router-link to="/" class="navbar-button" @click.native="$emit('resetView')">Inicio</router-link>
+    <router-link to="/login" class="navbar-button">Iniciar sesion</router-link>
+    <router-link to="/registro" class="navbar-button">Registrarse</router-link>
+    <router-link to="/ciencia" class="navbar-button">Invitado</router-link> <!-- Nuevo botón -->
+    <div class="breadcrumb">
+      <router-link to="/">Inicio</router-link>
+      <span v-for="(route, i) in $route.matched" :key="i">
+        <span> / </span>
+        <router-link :to="route.path">{{ route.name }}</router-link>
+      </span>
+    </div>
   </div>
-
 </template>
 
 <script>

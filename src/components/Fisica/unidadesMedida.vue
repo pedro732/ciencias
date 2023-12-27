@@ -1,24 +1,31 @@
 <template>
-  <v-row>
-    <v-col
-      cols="12"
-      sm="6"
-      v-for="(section, index) in item.secciones"
-      :key="index"
-    >
-      <v-img :src="item.imagenes[index].src" height="300px" contain></v-img>
-      <h2 class="mb-2 large-font">{{ section.subtitulo }}</h2>
-      <p class="mb-2 justified-text large-font">
-        <span v-for="(part, index) in splitParagraph(section.parrafo)" :key="index">
-          <span v-if="part !== '10 o de 10 elevado a menos uno'">{{ part }}</span>
-          <span v-else v-katex="'10 ~ o ~ de ~ 10^{-1}'"></span>
-        </span>
-      </p>
-    </v-col>
-  </v-row>
+  <div>
+    <v-row>
+      <v-col
+        cols="12"
+        sm="6"
+        v-for="(section, index) in item.secciones"
+        :key="index"
+      >
+        <v-img :src="item.imagenes[index].src" height="300px" contain></v-img>
+        <h2 class="mb-2 large-font">{{ section.subtitulo }}</h2>
+        <p class="mb-2 justified-text large-font">
+          <span v-for="(part, index) in splitParagraph(section.parrafo)" :key="index">
+            <span v-if="part !== '10 o de 10 elevado a menos uno'">{{ part }}</span>
+            <span v-else v-katex="'10 ~ o ~ de ~ 10^{-1}'"></span>
+          </span>
+        </p>
+      </v-col >
+    </v-row>
+    <v-row class="fill-height" align="center" justify="center">
+      <v-col cols="12" sm="8" md="6" class="centradoForm">
+        <FormularioDeComentarios />
+      </v-col>
+    </v-row>
+  </div>
 </template>
-
 <script>
+import FormularioDeComentarios from '@/components/Fisica/FormulariodeComentarios.vue'
 
 
 export default {
@@ -26,7 +33,7 @@ export default {
   
   name: "UnidadesdeMedida",
   components:{
-   
+   FormularioDeComentarios
   },
   
   data() {
@@ -98,5 +105,18 @@ export default {
 .justified-text {
   text-align: justify;
 }
+.centradoForm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta la altura al 100% de la altura de la ventana del navegador */
+}
 /* Añade aquí cualquier estilo personalizado que necesites */
+@media (min-width: 960px) {
+  .col-md-6 {
+    /* flex: 0 0 50%; */
+    /* max-width: 50%; */
+    margin: auto;
+  }
+}
 </style>

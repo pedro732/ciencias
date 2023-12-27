@@ -1,5 +1,4 @@
 <template>
-  
   <div class="container d-flex flex-column justify-space-between">
     <h1 class="title text-center">Bienvenidos al mundo de la Fisica</h1>
 
@@ -16,19 +15,20 @@
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary darken-2" @click="goToUnidadesMedida">Ver</v-btn>
+            <v-btn color="primary darken-2" @click="goToComponent(item.id)">Ver</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
-    <UnidadesdeMedida v-if="!showCards" />
-   
+    <UnidadesdeMedida v-if="selectedComponent === 'unidadesMedida'" />
+    <!-- Agrega aquí otros componentes con v-if="selectedComponent === 'id_del_componente'" -->
   </div>
 </template>
 
 
 <script>
 import UnidadesdeMedida from '@/components/Fisica/unidadesMedida.vue'
+// importa aquí otros componentes
 import axios from 'axios'
 
 
@@ -36,13 +36,14 @@ export default {
   name: 'FisicaActual',
   components: {
     UnidadesdeMedida
+    // agrega aquí otros componentes
   },
   data() {
     return {
       showCards:true,
       items: [],
-     
-      selectedItem: null
+      selectedComponent: null
+      
     }
   },
   created() {
@@ -55,8 +56,9 @@ export default {
   });
 },
 methods: {
-    goToUnidadesMedida() {
+  goToComponent(id) {
       this.showCards = false;
+      this.selectedComponent = id;
       
     },
   },
