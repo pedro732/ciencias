@@ -5,7 +5,7 @@
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/AbingdonTornado_2.JPG/1200px-AbingdonTornado_2.JPG",
       "comentario": "Los tornados pueden significar una gran amenaza a la seguridad de las poblaciones humanas , por ello es importante disponer de conocimientos para predecir su ocurrencia y medir su magnitud y consecuencias en la vida diaria."
     },
-    {
+    {  "id": "conversion",
       "titulo": "Conversión de unidades",
       "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm621VUQt4RuoH5-0xq4qUdM_XkkJS5GkFgmGoSEQhtQ&s",
       "comentario": "Muchos objetos comunes usan unidades tanto del SI como brit.nicas.Un ejemplo es el veloc.metro de unautom.vilfabricado en Estados Unidos,que indica la rapidez tanto en kil.metrospor hora (escala interior) como en millas por hora (escala exterior)."

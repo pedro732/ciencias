@@ -8,6 +8,7 @@
         :key="index"
       >
         <v-img :src="item.imagenes[index].src" height="300px" contain></v-img>
+        <p class="image-text">{{ item.imagenes[index].texto }}</p> <!-- Agrega esta línea -->
         <h2 class="mb-2 large-font">{{ section.subtitulo }}</h2>
         <p class="mb-2 justified-text large-font">
           <span v-for="(part, index) in splitParagraph(section.parrafo)" :key="index">
@@ -99,6 +100,9 @@ export default {
 </script>
 
 <style scoped>
+ .image-text {
+    font-size: 1em; /* Ajusta este valor según tus necesidades */
+  }
 .large-font {
   font-size: 1.5em; /* Ajusta este valor según tus necesidades */
 }
