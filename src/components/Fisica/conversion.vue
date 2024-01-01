@@ -80,7 +80,7 @@
               texto: "¡Un tren ha salido por la ventana! (París, 1895)",
             },
             {
-              src:"http://www.bachilleratoenlinea.net/aula/pluginfile.php?file=/7403/mod_lesson/page_contents/2793/img3.png"
+              src:"https://www.geogebra.org/resource/eknuuqnb/YGUxVWcz0JAdjkY2/material-eknuuqnb.png"
 
             },
             // Añade más imágenes según sea necesario
