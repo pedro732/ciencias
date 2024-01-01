@@ -60,7 +60,7 @@
         item: {
           imagenes: [
             {
-              src: "http://s443192316.mialojamiento.es/MisCreaciones/Referencias/elp_medidas/escala_m_escalera.png",
+              src: "https://i0.wp.com/www3.gobiernodecanarias.org/medusa/ecoblog/dharnav/files/2014/03/escalera.jpg?w=610&ssl=1",
               texto:
                 "Una vez definidas las unidades fundamentales , es fácil introducir unidades más grandes y más pequeñas para las mismas cantidades físicas.En el sistema métrico, estas unidades están relacionadas por medio de múltiplos de 10 o uno dividido por diez",
               height: "300px",
