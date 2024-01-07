@@ -10,10 +10,10 @@
       "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm621VUQt4RuoH5-0xq4qUdM_XkkJS5GkFgmGoSEQhtQ&s",
       "comentario": "Muchos objetos comunes usan unidades tanto del SI como brit.nicas.Un ejemplo es el veloc.metro de unautom.vilfabricado en Estados Unidos,que indica la rapidez tanto en kil.metrospor hora (escala interior) como en millas por hora (escala exterior)."
     },
-    {
-      "titulo": "Naturaleza de la Física",
-      "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Pisa_-_Campo_Santo_-_Campanile_2_-_2005-08-08_10-23_2005.JPG/250px-Pisa_-_Campo_Santo_-_Campanile_2_-_2005-08-08_10-23_2005.JPG",
-      "comentario": "la física es una ciencia experimental , los físicos observan fenómenos naturales e intentan encontrar las pautas que las describen. Estas pautas se denominan teorías físicas y si están muy bien establecidas se llaman leyes o principios."
+    { "id":"vectores",
+      "titulo": "cantidades vectoriales",
+      "imagen": "https://3.bp.blogspot.com/-YDy4iAFUsmY/WQfVjPobeVI/AAAAAAAAAKA/30H9GfB3iWsKtkFDJC5sCfCgDmd-LsB4wCLcB/s200/imagen%2B5.png",
+      "comentario": "Cuando una cantidad física se describe con un solo número, decimos que es una cantidad escalar. En cambio, una cantidad vectorial incluye tanto una magnitud (la cual indica “cuánto” o “qué tan grande”) como una dirección en el espacio"
     }
    
   ] 
