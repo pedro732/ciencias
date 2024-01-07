@@ -22,6 +22,7 @@
     </v-row>
     <UnidadesdeMedida v-if="selectedComponent === 'unidadesMedida'" />
     <ConversionDeUnidades v-if="selectedComponent === 'conversion'"/>
+    <CantidadesVectores v-if="selectedComponent === 'vectores'"/>
     <!-- Agrega aquí otros componentes con v-if="selectedComponent === 'id_del_componente'" -->
   </div>
 </template>
@@ -30,6 +31,7 @@
 <script>
 import UnidadesdeMedida from '@/components/Fisica/unidadesMedida.vue'
 import ConversionDeUnidades from '@/components/Fisica/conversion.vue'
+import CantidadesVectores from '@/components/Fisica/CantidadesVectores.vue'
 // importa aquí otros componentes
 import axios from 'axios'
 
@@ -38,7 +40,8 @@ export default {
   name: 'FisicaActual',
   components: {
     UnidadesdeMedida,
-    ConversionDeUnidades
+    ConversionDeUnidades,
+    CantidadesVectores,
     // agrega aquí otros componentes
   },
   data() {

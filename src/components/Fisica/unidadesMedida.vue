@@ -20,13 +20,21 @@
     </v-row>
     <v-row class="fill-height" align="center" justify="center">
       <v-col cols="12" sm="8" md="6" class="centradoForm">
-        <FormularioDeComentarios />
       </v-col>
     </v-row>
+    <div class="my-div">
+      <v-row class="fill-height" align="center" justify="center">
+        <v-col cols="12" sm="8" md="6" lg="8" class="centradoForm">
+          
+          
+          <FormulariodeComentarios2 cols="12" sm="8" md="6" class="form" />
+        </v-col>
+      </v-row>
+    </div>
   </div>
 </template>
 <script>
-import FormularioDeComentarios from '@/components/Fisica/FormulariodeComentarios.vue'
+import FormulariodeComentarios2 from '@/components/Fisica/FormulariodeComentarios2.vue'
 
 
 export default {
@@ -34,7 +42,7 @@ export default {
   
   name: "UnidadesdeMedida",
   components:{
-   FormularioDeComentarios
+   FormulariodeComentarios2,
   },
   
   data() {
@@ -100,6 +108,9 @@ export default {
 </script>
 
 <style scoped>
+.move-up {
+  margin-top: -450px;
+}
  .image-text {
     font-size: 1em; /* Ajusta este valor según tus necesidades */
   }
@@ -114,7 +125,12 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100vh; /* Ajusta la altura al 100% de la altura de la ventana del navegador */
+  
 }
+.centradoForm[data-v-be526b52]{
+  margin-top: -350px;
+}
+
 /* Añade aquí cualquier estilo personalizado que necesites */
 @media (min-width: 960px) {
   .col-md-6 {
@@ -122,5 +138,14 @@ export default {
     /* max-width: 50%; */
     margin: auto;
   }
+}
+.form{
+    width: 2000px;
+}
+.my-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta este valor según tus necesidades */
 }
 </style>

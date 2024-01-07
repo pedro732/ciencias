@@ -35,16 +35,20 @@
 
         </v-col >
       </v-row>
+      <div class="my-div">
       <v-row class="fill-height" align="center" justify="center">
-        <v-col cols="12" sm="8" md="6" class="centradoForm">
+        <v-col cols="12" sm="8" md="6" lg="8" class="centradoForm">
           
-          <FormularioDeComentarios />
+          
+          <FormulariodeComentarios2 cols="12" sm="8" md="6" class="form" />
         </v-col>
       </v-row>
     </div>
+    </div>
   </template>
   <script>
-  import FormularioDeComentarios from '@/components/Fisica/FormulariodeComentarios.vue'
+  
+  import FormulariodeComentarios2 from '@/components/Fisica/FormulariodeComentarios2.vue'
   
   
   export default {
@@ -52,7 +56,8 @@
     
     name: "ConversionDeUnidades",
     components:{
-     FormularioDeComentarios
+     
+      FormulariodeComentarios2
     },
     
     data() {
@@ -146,5 +151,14 @@
       margin: auto;
     }
   }
+  .form{
+    width: 2000px;
+}
+.my-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta este valor según tus necesidades */
+}
   </style>
   

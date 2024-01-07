@@ -1,146 +1,106 @@
 <template>
-  <v-container>
-    <v-row justify="center" align="center">
-      <v-col cols="12" sm="8" md="6">
-        <div class="form-container">
-          <v-text-field
-            v-model="nombre"
-            :counter="50"
-            label="Nombre"
-            required
-            class="input-field tu-nombre"
-          ></v-text-field>
-          <v-textarea
-            v-model="comentario"
-            :counter="100"
-            label="Comentario"
-            required
-            class="textarea-field tu comentario"
-          ></v-textarea>
-          <v-btn class="submit-button" dark color="primary" @click="submitForm">Enviar</v-btn>
-        </div>
-      </v-col>
-    </v-row>
-    <v-dialog v-model="dialog" max-width="400px">
-      <v-card>
-        <v-card-title class="headline">{{ dialogTitle }}</v-card-title>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="dialog = false">Cerrar</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-container>
+  <div class="bg-white border border-blue-500 grid grid-cols-6 gap-2 rounded-xl p-2 text-sm">
+    <h1 class="text-center text-slate-200 text-xl font-bold col-span-6">Send Feedback</h1>
+    <textarea v-model="comentario" placeholder="Your feedback..." class="bg-slate-100 text-slate-600 h-28 placeholder:text-slate-600 placeholder:opacity-50 border border-slate-200 col-span-6 resize-none outline-none rounded-lg p-2 duration-300 focus:border-slate-600"></textarea>
+    <button @click="happyFeedback" class="fill-slate-600 col-span-1 flex justify-center items-center rounded-lg p-2 duration-300 bg-slate-100 hover:border-slate-600 focus:fill-blue-200 focus:bg-blue-400 border border-slate-200">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 512 512">
+<path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm177.6 62.1C192.8 334.5 218.8 352 256 352s63.2-17.5 78.4-33.9c9-9.7 24.2-10.4 33.9-1.4s10.4 24.2 1.4 33.9c-22 23.8-60 49.4-113.6 49.4s-91.7-25.5-113.6-49.4c-9-9.7-8.4-24.9 1.4-33.9s24.9-8.4 33.9 1.4zM144.4 208a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm192-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path>
+</svg>
+      <!-- SVG for happy face -->
+    </button>
+    <button @click="sadFeedback" class="fill-slate-600 col-span-1 flex justify-center items-center rounded-lg p-2 duration-300 bg-slate-100 hover:border-slate-600 focus:fill-blue-200 focus:bg-blue-400 border border-slate-200">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 512 512">
+<path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM174.6 384.1c-4.5 12.5-18.2 18.9-30.7 14.4s-18.9-18.2-14.4-30.7C146.9 319.4 198.9 288 256 288s109.1 31.4 126.6 79.9c4.5 12.5-2 26.2-14.4 30.7s-26.2-2-30.7-14.4C328.2 358.5 297.2 336 256 336s-72.2 22.5-81.4 48.1zM144.4 208a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm192-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg>
+      <!-- SVG for sad face -->
+    </button>
+    <span class="col-span-2"></span>
+    <button @click="submitForm" class="bg-slate-100 stroke-slate-600 border border-slate-200 col-span-2 flex justify-center rounded-lg p-2 duration-300 hover:border-slate-600 hover:text-white focus:stroke-blue-200 focus:bg-blue-400">
+      <svg fill="none" viewBox="0 0 24 24" height="30px" width="30px" xmlns="http://www.w3.org/2000/svg" class="rocket-svg">
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" d="M7.39999 6.32003L15.89 3.49003C19.7 2.22003 21.77 4.30003 20.51 8.11003L17.68 16.6C15.78 22.31 12.66 22.31 10.76 16.6L9.91999 14.08L7.39999 13.24C1.68999 11.34 1.68999 8.23003 7.39999 6.32003Z"></path>
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" d="M10.11 13.6501L13.69 10.0601"></path>
+            </svg>
+</button>
+  </div>
 </template>
-  <script>
-  import { db, auth, onAuthStateChanged ,signOut} from '@/firebase'
-  import { collection, addDoc } from "firebase/firestore";
-  
-  export default {
-    data() {
-      return {
-        nombre: '',
-        comentario: '',
-        user: null,  // aquí guardaremos el estado del usuario
-        dialog: false,
-      dialogTitle: ''
-      }
+
+<script>
+import { db, auth, onAuthStateChanged ,signOut} from '@/firebase'
+import { collection, addDoc } from "firebase/firestore";
+
+export default {
+  data() {
+    return {
+      comentario: '',
+      user: null,
+      dialog: false,
+      dialogTitle: '',
+      feedback: null // Agrega esta línea para almacenar el feedback del usuario
+    }
+  },
+  created() {
+    onAuthStateChanged(auth, (user) => {
+      this.user = user;
+    });
+  },
+  methods: {
+    happyFeedback() {
+      this.feedback = 'happy'; // Almacena el feedback del usuario
+      console.log(this.feedback);
     },
-    created() {
-      onAuthStateChanged(auth, (user) => {
-        this.user = user;
-      });
+
+    sadFeedback() {
+      this.feedback = 'sad'; // Almacena el feedback del usuario
+      console.log(this.feedback);
     },
-    methods: {
+
     async submitForm() {
-      if (this.user) {  // solo permitimos enviar el formulario si el usuario está autenticado
-        try {
-          await addDoc(collection(db, "comentarios"), {
-            nombre: this.nombre,
-            comentario: this.comentario,
-            // puedes agregar aquí más campos si los necesitas
-          });
-          this.dialogTitle = 'Comentario guardado!';
-          this.dialog = true;
-          // puedes hacer aquí algo más después de guardar el comentario, como limpiar el formulario
-          this.nombre = '';
-          this.comentario = '';
-        } catch (e) {
-          console.error('Error guardando el comentario:', e);
-        }
-      } else {
-        this.dialogTitle = 'Debe iniciar sesión antes de enviar un comentario';
-        this.dialog = true;
-      }
-      
-    },
-    async logout() {
+  console.log('submitForm has been called'); // New console log
+
+  if (this.user && this.feedback) {
+    console.log('User and feedback exist'); // New console log
+    console.log('User:', this.user);
+    console.log('Feedback:', this.feedback);
+
     try {
-      await signOut(auth);
-      this.user = null;  // asegúrate de actualizar el estado del usuario
+      await addDoc(collection(db, "comentarios"), {
+        comentario: this.comentario,
+        feedback: this.feedback
+      });
+
+      console.log('Comment has been saved'); // New console log
+      this.dialogTitle = 'Comentario guardado!';
+      this.dialog = true;
+      this.comentario = '';
+      this.feedback = null;
     } catch (e) {
-      console.error('Error al cerrar la sesión:', e);
+      console.error('Error saving the comment:', e);
+    }
+  } else {
+    console.log('User or feedback does not exist'); // New console log
+    this.dialogTitle = 'Debe iniciar sesión y seleccionar un feedback antes de enviar un comentario';
+    this.dialog = true;
+  }
+},
+    async logout() {
+      try {
+        await signOut(auth);
+        this.user = null;
+      } catch (e) {
+        console.error('Error al cerrar la sesión:', e);
+      }
     }
   }
-    
-  }
-  
 }
 </script>
-  
 <style scoped>
-.v-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Ajusta la altura al 100% de la altura de la ventana del navegador */
+.rocket-svg {
+  overflow: visible !important;
+  fill: black;
 }
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 100%;  /* reducir el ancho del formulario */
-  max-width: 600px; /* Ajusta este valor según tus necesidades */
-  height: auto; /* Ajusta este valor según tus necesidades */
-  background-color: #fff;
+.centradoform{
+  border-color: aqua ;
+  border-width: 1px;
+  border-style: solid;
 }
-.form-container input,
-.form-container textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box; /* Asegura que el padding y el borde estén incluidos en el ancho total */
-}
-
-.submit-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007BFF;
-  color: #fff;  /* hacer que el texto del botón sea visible */
-  cursor: pointer;
-}
-
-.submit-button:hover {
-  background-color: #0056b3;
-  transform: scale(1.1);  /* agregar un efecto hover al botón */
-}
-.v-text-field fieldset,
-.v-text-field ,
-.v-input__control{
-  border: dotted;
-}
-.modal-text {
-  font-size: 10px; /* Ajusta este valor según tus necesidades */
-}
-
+/* Your Tailwind CSS styles here */
 </style>

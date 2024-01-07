@@ -5,6 +5,7 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import VueKatex from 'vue-katex';
 import 'katex/dist/katex.min.css';
+import '@/input.css';
 
 Vue.use(VueKatex);
 
