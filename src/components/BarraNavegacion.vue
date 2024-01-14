@@ -1,34 +1,53 @@
 <template>
-  <div class="mi-contenedor" >
-    <router-link to="/" class="navbar-button" @click.native="$emit('resetView')">Inicio</router-link>
-    <router-link to="/login" class="navbar-button">Iniciar sesion</router-link>
-    <router-link to="/registro" class="navbar-button">Registrarse</router-link>
-    <router-link to="/ciencia" class="navbar-button">Invitado</router-link> 
-    <v-btn class="navbar-button" @click="logout">Cerrar sesión</v-btn> <!-- Nuevo botón --><!-- Nuevo botón -->
-    <div class="breadcrumb">
-      <router-link to="/">Inicio</router-link>
-      <span v-for="(route, i) in $route.matched" :key="i">
-        <span> / </span>
-        <router-link :to="route.path">{{ route.name }}</router-link>
-      </span>
-    </div>
+  <div>
+    <v-app-bar app color="indigo" dark>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>Ciencia y Educación</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <router-link to="/" class="navbar-button" @click.native="$emit('resetView')">Inicio</router-link>
+        <router-link to="/login" class="navbar-button">Iniciar sesion</router-link>
+        <router-link to="/registro" class="navbar-button">Registrarse</router-link>
+        <router-link to="/ciencia" class="navbar-button">Invitado</router-link> 
+        <v-btn class="navbar-button" @click="logout">Cerrar sesión</v-btn>
+      </v-toolbar-items>
+    </v-app-bar>
+    <v-navigation-drawer v-model="drawer" app>
+      <v-list dense>
+        <v-list-item @click.native="$emit('resetView')" :to="{ path: '/' }">
+          <v-list-item-title>Inicio</v-list-item-title>
+        </v-list-item>
+        <v-list-item :to="{ path: '/login' }">
+          <v-list-item-title>Iniciar sesion</v-list-item-title>
+        </v-list-item>
+        <v-list-item :to="{ path: '/registro' }">
+          <v-list-item-title>Registrarse</v-list-item-title>
+        </v-list-item>
+        <v-list-item :to="{ path: '/ciencia' }">
+          <v-list-item-title>Invitado</v-list-item-title>
+        </v-list-item>
+        <v-list-item @click="logout">
+          <v-list-item-title>Cerrar sesión</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
   </div>
 </template>
 
 <script>
 import { auth, signOut } from '@/firebase'
 export default {
-name: 'NavBar',
-// Aquí puedes definir las propiedades, métodos, etc. de tu componente
-methods: {
+  name: 'NavBar',
+  data: () => ({
+    drawer: false,
+  }),
+  methods: {
     async logout() {
       try {
         await signOut(auth);
         if (this.$route.path !== '/') {
-      this.$router.push('/');
-    }
-        // Aquí puedes redirigir al usuario a la página de inicio o hacer algo más después de cerrar la sesión
-       
+          this.$router.push('/');
+        }
       } catch (e) {
         console.error('Error al cerrar la sesión:', e);
       }

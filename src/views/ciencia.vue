@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ciencia-actual">
     <v-btn class="button" @click="handleClick('Biologia')">Biologia</v-btn>
     <v-btn class="button" @click="handleClick('Quimica')">Quimica</v-btn>
     <v-btn class="button" @click="handleClick('Fisica')">Fisica</v-btn>
@@ -121,6 +121,9 @@ export default {
   margin: 10px;
   border-radius: 5px;
   cursor: pointer;
+}
+.ciencia-actual {
+  margin-top: 64px; /* Ajusta este valor según la altura de tu barra de navegación */
 }
 
 .button:hover {
