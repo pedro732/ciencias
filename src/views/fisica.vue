@@ -23,6 +23,7 @@
     <UnidadesdeMedida v-if="selectedComponent === 'unidadesMedida'" />
     <ConversionDeUnidades v-if="selectedComponent === 'conversion'"/>
     <CantidadesVectores v-if="selectedComponent === 'vectores'"/>
+    <ProblemasUnidadesVectores v-if="selectedComponent === 'problemas1'"/>
     <!-- Agrega aquí otros componentes con v-if="selectedComponent === 'id_del_componente'" -->
   </div>
 </template>
@@ -32,6 +33,7 @@
 import UnidadesdeMedida from '@/components/Fisica/unidadesMedida.vue'
 import ConversionDeUnidades from '@/components/Fisica/conversion.vue'
 import CantidadesVectores from '@/components/Fisica/CantidadesVectores.vue'
+import ProblemasUnidadesVectores from '@/components/Fisica/problemasUnidadesVectores.vue'
 // importa aquí otros componentes
 import axios from 'axios'
 
@@ -42,6 +44,7 @@ export default {
     UnidadesdeMedida,
     ConversionDeUnidades,
     CantidadesVectores,
+    ProblemasUnidadesVectores,
     // agrega aquí otros componentes
   },
   data() {

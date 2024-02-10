@@ -14,6 +14,11 @@
       "titulo": "cantidades vectoriales",
       "imagen": "https://3.bp.blogspot.com/-YDy4iAFUsmY/WQfVjPobeVI/AAAAAAAAAKA/30H9GfB3iWsKtkFDJC5sCfCgDmd-LsB4wCLcB/s200/imagen%2B5.png",
       "comentario": "Cuando una cantidad física se describe con un solo número, decimos que es una cantidad escalar. En cambio, una cantidad vectorial incluye tanto una magnitud (la cual indica “cuánto” o “qué tan grande”) como una dirección en el espacio"
-    }
+    },
+    { "id":"problemas1",
+    "titulo": "Ejercicios resueltos de física",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Moglfm01sn_vector.jpg/250px-Moglfm01sn_vector.jpg",
+    "comentario": "Ha llegado el momento de realizar ejercicios para poner en práctica lo aprendido.De esa manera lograrás un dominio más acabado de los conceptos y podrás aplicarlos en situaciones reales."
+  }
    
   ] 
