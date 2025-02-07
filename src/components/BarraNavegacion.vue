@@ -8,8 +8,9 @@
         <router-link to="/" class="navbar-button" @click.native="$emit('resetView')">Inicio</router-link>
         <router-link to="/login" class="navbar-button">Iniciar sesion</router-link>
         <router-link to="/registro" class="navbar-button">Registrarse</router-link>
-        <router-link to="/ciencia" class="navbar-button">Invitado</router-link> 
+        <router-link to="/ciencia" class="navbar-button">Invitada(o)</router-link> 
         <v-btn class="navbar-button" @click="logout">Cerrar sesión</v-btn>
+        <v-btn class="navbar-button" @click="openBlog" target="_blank">Mi blog</v-btn>
       </v-toolbar-items>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app>
@@ -28,6 +29,9 @@
         </v-list-item>
         <v-list-item @click="logout">
           <v-list-item-title>Cerrar sesión</v-list-item-title>
+        </v-list-item>
+        <v-list-item @click="openBlog">
+          <v-list-item-title>Mi blog</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -51,6 +55,9 @@ export default {
       } catch (e) {
         console.error('Error al cerrar la sesión:', e);
       }
+    },
+    openBlog() {
+      window.open('https://blogeducativo.netlify.app/', '_blank');
     }
   }
 };

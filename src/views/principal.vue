@@ -6,7 +6,7 @@
       <div class="content-wrapper">
         <div class="conec-nasa-wrapper">
           <div style="width: 100%; overflow: auto;">
-            <ConecNasa />
+            <ConecNews />
           </div>
           <PalabrasAleatorias class="fixed-size" />
         </div>
@@ -19,16 +19,17 @@
 <script>
 import CarruselWeb from "../components/carruselWeb.vue";
 import InfoFacebook from "../components/InfoFacebooks.vue";
-import ConecNasa from "../components/ConecNasa.vue";
-import PieDePagina from "../components/PieDePagina.vue"
-import PalabrasAleatorias from '../components/PalabrasAleatorias.vue'
+import ConecNews from "../components/ConecNews.vue";
+import PieDePagina from "../components/PieDePagina.vue";
+import PalabrasAleatorias from '../components/PalabrasAleatorias.vue';
+
 
 export default {
   name: "PrincipalView",
   components: {
     CarruselWeb,
     InfoFacebook,
-    ConecNasa,
+    ConecNews,
     PieDePagina,
     PalabrasAleatorias
   },
