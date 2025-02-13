@@ -1,0 +1,24 @@
+[
+    {
+      "id": "unidadesMedida",
+      "titulo": "Estandares y unidades",
+      "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/AbingdonTornado_2.JPG/1200px-AbingdonTornado_2.JPG",
+      "comentario": "Los tornados pueden significar una gran amenaza a la seguridad de las poblaciones humanas , por ello es importante disponer de conocimientos para predecir su ocurrencia y medir su magnitud y consecuencias en la vida diaria."
+    },
+    {  "id": "conversion",
+      "titulo": "Conversión de unidades",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm621VUQt4RuoH5-0xq4qUdM_XkkJS5GkFgmGoSEQhtQ&s",
+      "comentario": "Muchos objetos comunes usan unidades tanto del SI como brit.nicas.Un ejemplo es el veloc.metro de unautom.vilfabricado en Estados Unidos,que indica la rapidez tanto en kil.metrospor hora (escala interior) como en millas por hora (escala exterior)."
+    },
+    { "id":"vectores",
+      "titulo": "cantidades vectoriales",
+      "imagen": "https://3.bp.blogspot.com/-YDy4iAFUsmY/WQfVjPobeVI/AAAAAAAAAKA/30H9GfB3iWsKtkFDJC5sCfCgDmd-LsB4wCLcB/s200/imagen%2B5.png",
+      "comentario": "Cuando una cantidad física se describe con un solo número, decimos que es una cantidad escalar. En cambio, una cantidad vectorial incluye tanto una magnitud (la cual indica “cuánto” o “qué tan grande”) como una dirección en el espacio"
+    },
+    { "id":"problemas1",
+    "titulo": "Ejercicios resueltos de física",
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Moglfm01sn_vector.jpg/250px-Moglfm01sn_vector.jpg",
+    "comentario": "Ha llegado el momento de realizar ejercicios para poner en práctica lo aprendido.De esa manera lograrás un dominio más acabado de los conceptos y podrás aplicarlos en situaciones reales."
+  }
+   
+  ] 
