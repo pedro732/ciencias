@@ -1,0 +1,20 @@
+firebase.js
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+
+
+  
+const firebaseConfig = {
+    apiKey: "AIzaSyD52XhAbvJfxIf7OSxH7Un6JMdossvAYik",
+    authDomain: "autenticacion-5a584.firebaseapp.com",
+    projectId: "autenticacion-5a584",
+    storageBucket: "autenticacion-5a584.appspot.com",
+    messagingSenderId: "897784626073",
+    appId: "1:897784626073:web:a7e1cda90eb05e911c7108",
+    measurementId: "G-RB65N9B5B6"
+  };
+  
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth();
+  export { app, auth };
